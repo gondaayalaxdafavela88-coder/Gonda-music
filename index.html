@@ -1,36 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Old Music</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-header { background-color: #f8f9fa; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; }
-.menu-icon { font-size: 24px; cursor: pointer; }
-.home-icon { font-size: 24px; cursor: pointer; margin-left: 15px; }
-.search-container { flex-grow: 1; margin: 0 20px; }
-input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-.notification-icon { font-size: 24px; cursor: pointer; }
-.styles-container { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; }
-.style-circle { width: 100px; height: 100px; background-color: #9d0f19; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 15px; cursor: pointer; font-weight: bold; text-align: center; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Music</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-image: url('2361.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        header { 
+            background-color: rgba(248, 249, 250, 0.9); 
+            padding: 10px 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            border-bottom: 1px solid #ddd; 
+        }
+        .menu-icon { font-size: 24px; cursor: pointer; color: #000; }
+        .home-icon { font-size: 24px; cursor: pointer; margin-left: 15px; color: #000; }
+        .search-container { flex-grow: 1; margin: 0 20px; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .notification-icon { font-size: 24px; cursor: pointer; color: #000; }
+        .styles-container { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; }
+        .style-circle { width: 100px; height: 100px; background-color: rgba(157, 15, 25, 0.9); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 15px; cursor: pointer; font-weight: bold; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+
+        /* Estilo do Menu Lateral */
+        .menu-content {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            background-color: rgba(17, 17, 17, 0.95);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .menu-content a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-content a:hover { color: #f1f1f1; }
+
+        .menu-content .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-<header>
-<div class="menu-icon">☰</div>
-<div class="home-icon">⌂</div>
-<div class="search-container">
-<input type="text" placeholder="Pesquisar...">
-</div>
-<div class="notification-icon">🔔</div>
-</header>
-<main>
-<div class="styles-container">
-<div class="style-circle">Hip-Hop</div>
-<div class="style-circle">Marrabenta</div>
-<div class="style-circle">R&B</div>
-</div>
-</main>
+
+    <header>
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="home-icon">&#128968;</div>
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <div class="notification-icon">&#128276;</div>
+    </header>
+
+    <!-- Estrutura do Menu Lateral -->
+    <div id="sideMenu" class="menu-content">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Clientes</a>
+        <a href="#">Contacto</a>
+    </div>
+
+    <main>
+        <div class="styles-container">
+            <div class="style-circle">Hip-Hop</div>
+            <div class="style-circle">Marrabenta</div>
+            <div class="style-circle">R&B</div>
+        </div>
+    </main>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
 </body>
+
 </html>
